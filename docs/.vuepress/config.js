@@ -18,6 +18,19 @@ module.exports = {
             description: 'Vue-powered Static Site Generator'
             }
     },
+    plugins: [
+      "@vuepress/back-to-top",
+      [
+        "@vuepress/last-updated",
+        {
+          transformer: (timestamp, lang) => {
+            const fromUnixTime = require("date-fns/fromUnixTime");
+            const timestampOffset = timestamp / 1000;
+            return fromUnixTime(timestampOffset);
+          }
+        }
+      ]
+    ],
     postcss: {
         plugins: [
           require("tailwindcss")("./tailwind.config.js"),
