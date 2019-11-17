@@ -18,6 +18,9 @@ module.exports = {
             description: 'Vue-powered Static Site Generator'
             }
     },
+    themeConfig: {
+      smoothScroll: true
+    },
     plugins: [
       "@vuepress/back-to-top",
       [
