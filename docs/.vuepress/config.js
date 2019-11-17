@@ -34,6 +34,16 @@ module.exports = {
         }
       ]
     ],
+    markdown: {
+      extendMarkdown: md => {
+        md.use(require("markdown-it-task-lists")).use(
+          require("markdown-it-imsize"),
+          {
+            autofill: true
+          }
+        );
+      }
+    },
     postcss: {
         plugins: [
           require("tailwindcss")("./tailwind.config.js"),
