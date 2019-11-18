@@ -3,13 +3,13 @@ title: Tailwind css components
 description: This is sample tailwindcss sample
 date: 2019-11-14
 categories: [web]
-tags: [tailwind] 
+tags: [tailwind, vue, vuepress] 
 sidebar: auto
 ---
 
 # {{ $page.title }}
 
-<postMeta/>
+<ArticlePostMeta/>
 
 ## Alert
 

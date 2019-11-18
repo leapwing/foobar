@@ -1,3 +1,5 @@
+const archSideBarPaths = ["/arch/", "/arch/categories/", "/arch/tags/"];
+
 const purgecss = require("@fullhuman/postcss-purgecss")({
     content: [
       "./node_modules/@vuepress/theme-default/**/*.*",
@@ -19,7 +21,23 @@ module.exports = {
             }
     },
     themeConfig: {
-      smoothScroll: true
+      smoothScroll: true,
+      nav: [
+        {
+          text: "ARCH",
+          link: "/arch/"
+        },
+        {
+          text: "HOME",
+          link: "https:/leapwing.github.io"
+        }
+      ],
+      sidebar: {
+        "/arch/": archSideBarPaths,
+        "/arch/tags/": archSideBarPaths,
+        "/arch/categories/": archSideBarPaths,
+        "/": []
+      }
     },
     plugins: [
       "@vuepress/back-to-top",
