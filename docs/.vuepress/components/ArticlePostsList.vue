@@ -20,7 +20,7 @@
                   class="p-1 bg-gray-600 text-white rounded"
                 >{{formatDate(page.frontmatter.date)}}</small>
               </p>
-              <small v-if="page.frontmatter.date && page.lastUpdated" class="hiddden md:inline text-gray-900">|</small>
+              <small v-if="page.frontmatter.date && page.lastUpdated" class="hidden md:inline text-gray-900">|</small>
               <p v-if="page.lastUpdated" class="md:inline-block text-gray-900 md:my-1 my-0 text-sm">
                 Last updated on
                 <small

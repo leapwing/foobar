@@ -13,7 +13,7 @@ export default new Vuex.Store({
             state.archChategoryPath -= 1;
         },
         tagPathCount(state, payload) {
-            state.tagPathCount -= 1;
+            state.archTagPath -= 1;
         }
     },
     actions: {},
