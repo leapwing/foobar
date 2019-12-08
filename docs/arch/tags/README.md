@@ -1,5 +1,5 @@
 ---
-title: Posts by Tag
+title: 筆記標籤
 ---
 
 # {{ $page.title }}

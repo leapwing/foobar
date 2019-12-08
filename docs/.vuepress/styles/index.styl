@@ -16,7 +16,58 @@
     display: none;
 }
 
+[class*='bg-tag-'], [class*='bg-category-'] {
+    a {
+        color: inherit;
+    }
+}
+
 
 @tailwind components;
 
+
 @tailwind utilities;
+
+
+// category
+.bg-category {
+    @apply text-white font-semibold;    
+}
+
+.bg-category-web {
+    @apply bg-category bg-blue-700;    
+}
+
+.bg-category-git {
+    @apply bg-category;
+    color: #413932;
+    background-color: #f54d27;    
+}
+
+// tag
+
+.bg-tag {
+    @apply text-white font-semibold;    
+}
+
+.bg-tag-vuepress {
+    @apply bg-tag;
+    color: #272c41;
+    background-color: #4abf8a;
+}
+
+.bg-tag-vue {
+    @apply bg-tag;
+    background-color: #41b883;
+}
+
+.bg-tag-tailwind {
+    @apply bg-tag;
+    background-color: #16bfb8;
+}
+
+.bg-tag-git {
+    @apply bg-tag;
+    color: #413932;
+    background-color: #f54d27;
+}

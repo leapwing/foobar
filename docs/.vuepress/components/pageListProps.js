@@ -1,7 +1,7 @@
 export default {
     byPaths: {
       default() {
-        return [];
+        return ["/notes"];
       },
       type: [Array, String]
     },
@@ -19,7 +19,7 @@ export default {
     },
     notCategories: {
       default() {
-        return [];
+        return [null];
       },
       type: [Array, String]
     },
@@ -31,7 +31,7 @@ export default {
     },
     notTags: {
       default() {
-        return [];
+        return [null];
       },
       type: [Array, String]
     }

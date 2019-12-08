@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: K-notes
-actionText: Get Started →
+actionText: 筆記列表 →
 actionLink: /arch/
 footer: MIT Licensed | Copyright © 2019-present Kenny Huang
 ---

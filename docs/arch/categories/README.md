@@ -1,5 +1,5 @@
 ---
-title: Posts by Category
+title: 筆記分類
 ---
 
 # {{ $page.title }}

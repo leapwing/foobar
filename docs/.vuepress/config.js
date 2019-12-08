@@ -16,20 +16,20 @@ module.exports = {
     locales: {
         '/': {
             lang: 'zh-TW',
-            title: 'foobar',
-            description: 'Vue-powered Static Site Generator'
+            title: '術練單',
+            description: '技術紀錄學習練習筆記'
             }
     },
     themeConfig: {
       smoothScroll: true,
       nav: [
         {
-          text: "ARCH",
+          text: "歸檔",
           link: "/arch/"
         },
         {
-          text: "HOME",
-          link: "https:/leapwing.github.io"
+          text: "重頭開始",
+          link: "https://leapwing.github.io/"
         }
       ],
       sidebar: {
@@ -68,5 +68,6 @@ module.exports = {
           require("autoprefixer"),
           ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
         ]
-      }
+    },
+    evergreen: true
 }

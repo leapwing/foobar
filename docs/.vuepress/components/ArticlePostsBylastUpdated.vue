@@ -16,9 +16,10 @@
         tagBgColor
       }"
     >
-      <div class="flex flex-wrap -mx-4 px-2">
+      <div class="flex flex-wrap justify-around -mx-4 px-2">
         <div
-          class="w-full sm:w-1/2 md:w-1/3 px-2 my-2"
+          v-if="page.lastUpdated"
+          class="w-5/6 sm:w-80 md:w-72 px-2 my-2"
           v-for="(page, index) in lastPosts(3)"
           :key="page.path"
         >

@@ -1,5 +1,5 @@
 ---
-title: Posts by Date
+title: 筆記列表
 ---
 
 # {{ $page.title }}

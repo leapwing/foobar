@@ -57,12 +57,12 @@ export default {
   },
   mounted() {
     this.qs_name = this.$route.query.name;
-    // if (this.$store.state.archCategoryPath >= 0) {
-    //   this.$store.commit("categoryPathCount");
-    //   if (this.$store.state.archCategoryPath == 0 && this.$route.hash) {
-    //     setTimeout(() => this.fixScroll(this.$route.hash), 100);
-    //   }
-    // }
+    if (this.$store.state.archCategoryPath >= 0) {
+      this.$store.commit("categoryPathCount");
+      if (this.$store.state.archCategoryPath == 0 && this.$route.hash) {
+        setTimeout(() => this.fixScroll(this.$route.hash), 100);
+      }
+    }
   },
   methods: {
     fixScroll(anchor) {
