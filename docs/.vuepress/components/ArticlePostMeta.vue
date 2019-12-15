@@ -2,26 +2,26 @@
   <div
     class="bg-blue-100 border-t-2 border-blue-500 rounded-b px-4 py-2 shadow-md"
   >
-    <div class="p-2 -mx-2 text-sm">
+    <div class="p-2 -mx-2 text-sm text-gray-800">
       <p v-if="$page.frontmatter.date" class="inline-block text-sm my-1 md:inline-block">
         Published on
-        <small class="text-xs text-gray-100 bg-gray-600 px-2 py-1 rounded">
+        <small class="text-xs text-gray-200 bg-gray-600 px-2 py-1 rounded">
           {{ formatDate($page.frontmatter.date) }}
         </small>
       </p>
       <small
         v-if="$page.frontmatter.date && $page.lastUpdated"
-        class="text-gray-900 hidden md:inline"
+        class="hidden md:inline"
         >|</small
       >
       <p v-if="$page.lastUpdated" class="my-0 md:inline-block">
         Last updated on
-        <small class="text-xs text-gray-100 bg-gray-600 px-2 py-1 rounded">
+        <small class="text-xs text-gray-200 bg-gray-600 px-2 py-1 rounded">
           {{ formatDate($page.lastUpdated) }}
         </small>
       </p>
     </div>
-    <div class="p-2 -m-2">
+    <div class="p-2 -m-2 text-gray-800">
       <div v-if="$page.frontmatter.categories.length > 0" class="my-1 text-sm">
         Categorized:
         <div

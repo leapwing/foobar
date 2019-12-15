@@ -66,9 +66,9 @@ export default {
   },
   methods: {
     fixScroll(anchor) {
-      let anchorEl = document.querySelector(decodeURI(anchor));
-      if (anchorEl) {
-        scrollTo(0, anchorEl.offsetTop);
+      let anchorElement = document.querySelector(decodeURI(anchor));
+      if (anchorElement) {
+        scrollTo(0, anchorElement.offsetTop);
       }
     }
   }
