@@ -50,7 +50,8 @@ module.exports = {
             return fromUnixTime(timestampOffset);
           }
         }
-      ]
+      ],
+      '@vuepress/pwa'
     ],
     markdown: {
       extendMarkdown: md => {
