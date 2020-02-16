@@ -37,7 +37,7 @@
                 :to="'/arch/categories/#'+formatAnchor(page.frontmatter.categories[0])"
               >
                 <div
-                  class="px-2 py-4 text-gray-900 bg-gray-400 rounded inline-block w-40 break-words"
+                  class="px-2 py-4 text-gray-900 bg-gray-400 uppercase rounded inline-block w-40 break-words"
                   :class="categoryBgColor(page.frontmatter.categories)"
                 >{{...page.frontmatter.categories}}</div>
               </router-link>
@@ -60,7 +60,7 @@
               :to="'/arch/categories/#'+formatAnchor(page.frontmatter.categories[0])"
             >
               <div
-                class="px-4 py-4 text-gray-900 bg-gray-400 rounded break-words"
+                class="px-4 py-4 text-gray-900 bg-gray-400 uppercase rounded break-words"
                 :class="categoryBgColor(page.frontmatter.categories)"
               >{{...page.frontmatter.categories}}</div>
             </router-link>
