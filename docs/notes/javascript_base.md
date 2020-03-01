@@ -19,7 +19,7 @@ JS 的變數中沒有附加任何類型，所以可重新配置其他類型之�
 
 這也是 JS 被稱為 `weakly-typed` 的原因。
 
-### var
+### `var`
 
 在 ES2015之前，`var` 是唯一可用於定定義變數的結構。
 
@@ -39,7 +39,7 @@ var a = 2, b = 1 // in the same statement
 
 作用域(scope) 僅在函式部分，非函式的變數都分配給全局變數。
 
-### let
+### `let`
 
 `let` 是 ES2015 中的一個新特性，作用範圍僅限於塊(curly braces)、語句(statement)、或表達式(expression)。
 
@@ -50,7 +50,7 @@ let a = 10
 
 在任何函式外定義 `let` 並不會分配給全局變數。
 
-### const
+### `const`
 
 用 `var` 或 `let` 聲明的變數可在稍後的程序中修改，只要初始化一個常數，其值就不能再次修改，無法再重新分配其他值。
 
@@ -62,7 +62,7 @@ const a = "test"
 
 `const` 並不提供不變性，只是確保參考不會被變動。
 
-`Const` 有塊作用域，和 `let` 一樣。
+`const` 有塊作用域，和 `let` 一樣。
 
 常被使用來處理不需要重新分配的變數。
 
@@ -111,7 +111,7 @@ let let // Keyword not allowed                         ❌
 
 ## Data Types 簡介
 
-### Numbers
+### `Numbers`
 
 數值類型只有一種，每個數值都是浮點數(float)。
 
@@ -123,7 +123,7 @@ let let // Keyword not allowed                         ❌
 1.23e4 //1.23 * 10^4
 ```
 
-### Strings
+### `Strings`
 
 字串類型是字元序列。
 
@@ -149,7 +149,7 @@ with
 ${myString}` // multiline
 ```
 
-### Booleans
+### `Booleans`
 
 布林類型定義兩個保留字：`true` 和 `false` ，在比較運算中會返回布林值。
 
@@ -171,11 +171,11 @@ null
 
 以上的值被解釋為 `falsy` ，其餘的都為 `truthy`。
 
-### null
+### `null`
 
 `null` 是一個特殊值，表示沒有值，可用來重置或清除變數值。
 
-### undefined
+### `undefined`
 
 `undefined` 表示變數未初始化而且沒有值。
 不能賦值 `undefined` 給變數。
@@ -218,3 +218,266 @@ null
 | `=` `+=` `-=` `*=` `/=` `%=` `**=` | assignments                              |
 
 若加入小括號(parentheses) 則擁有最高優先權級。
+
+## 函式(function)
+
+函式是個代碼塊，可以定義一次，並可在任何地方運行。
+
+函式可接收參數，且可返回一個值。
+
+函式類型是物件，一種特殊物件類型：`function objects` 。
+
+### 語法(Syntax)
+
+```js
+function foo(bar) {  // regular function
+    // do something
+}
+const foo = function(bar) {  // function expression
+    // do something
+}
+const foo = function foo(bar) {  // named function expression
+    // do something
+}
+const foo = bar => {  // arrow function
+    // do something
+}
+```
+
+### 參數(Parameters)
+
+```js
+const foo = () => {  // no parameters
+    // do something
+}
+const foo = bar => {  // one parameters
+    // do something
+}
+const foo = (bar, baz) => {  // more parameters
+    // do something
+}
+const foo = (bar = 1, baz = 'hi') => {  // default value by ES6
+    // do something
+}
+```
+
+調用函式可使用展開操作(spread operator)：
+
+```js
+const foo = (bar = 1, baz = 'hi') => {
+    // do something
+}
+const args = [2, 'Hi!!!']
+foo(...args)
+```
+
+當有很多參數時，很難依順序加入，可使用 `objects` 來解構(destructuring)其參數名稱。
+
+```js
+const foo = ({ bar = 1, baz = 'hi'}) => {
+    // do something
+}
+const args = {bar: 2, baz: 'Hi!!!'}
+foo(args)
+const foo_two = ({ bar = 1, baz = 'hi'} = {}) {
+    // do something
+}
+foo_two() // assign a default empty object
+```
+
+### 返回值(Return values)
+
+每個函式返回預設值都是 `undefined` 。
+
+任何函式在其代碼行結束或執行流程遇到 `return` 時終止。
+
+返回時只能返回一值，若要返回多值，可使用 `object` 或 `array` ，並在調用時使用解構賦值。
+
+```js
+const foo = () => {
+    return ['javascript', 25]  // return array
+}
+const [name, age] = foo() // name = "javascript", age = 25
+const bar = () => {
+    return {name:'javascript', age:25}  // return objects
+}
+const {name, age} = bar() // name = "javascript", age = 25
+```
+
+### 嵌套函式(Nested functions)
+
+```js
+const foo = () => {
+    const bar = () => {
+        // bar function code
+    }
+    bar()  // cannot be called from the outside function
+    return 'baz'
+}
+```
+
+這有助於封裝程式碼，受作用域(scope)限制，所以可使用已定義在其他函式的函式與變數。
+
+```js
+const foo = () => {
+    const bar = () => {
+        // bar function code
+    }
+    bar() // this scope in foo
+    return 'baz'
+}
+const foo_two = () => {
+    const bar = () => {
+        // bar function code
+    }
+    bar() // this scope in foo_two
+    return 'qux'
+}
+```
+
+### 物件方法(Object Methods)
+
+當使用物件屬性時，函是被稱之為方法。
+
+```js
+const foo = {
+    name: 'js',
+    age: 25,
+    start: function() {
+        console.log('Started')
+    }
+}
+foo.start()
+```
+
+### 箭頭函式中的 `this`
+
+當作為物件方法使用時，箭頭函式與一般函式有著不同的行為：
+`stop()` 方法執行下非預期的結果。
+
+```js
+const book = {
+    name: 'Beginning JavaScript',
+    publish: '2015-3-9',
+    start: function() {
+        console.log(`Started ${this.name} ${this.publish}`) // Started Beginning JavaScript 2015-3-9
+    },
+    stop: () =>  {
+        console.log(`Stopped ${this.name} ${this.publish}`) // Stopped undefined undefined
+    }
+}
+```
+
+這是因為兩個函式聲明樣式對 `this` 的處理式不同的。箭頭函式的 `this` 是指封閉函式的上下文，這邊是指 `window` 物件。
+
+`this` 是指向宿主物件使用的函式。
+
+這表示箭頭函式不適合用於物件方法與構造函式(會引起 `TypeError`)。
+
+### 及時調用函式表達式 (IIFE)
+
+`IIFE`(Immediately Invocated Function Expressions) 是在聲明後立即執行的函式，因而不需在函是定義後再調用。
+
+```js
+(function foo() { // named IIFE
+    console.log("run")
+})();
+const bar = (function () { // assign the result to a variable
+    return 'bar';
+})();
+(() => { // arrow function IIFE
+    console.log("run in arrow function")
+})();
+```
+
+### 函式提升 (Function Hoisting)
+
+JS 會在程式代碼執行前，根據規則重新排序。
+
+特別是函式會被移到調用作用域的頂部。
+
+```js
+foo()
+function foo() {
+    console.log("run foo function")
+}
+```
+
+但是若使用命名函式表達式，有使用變數，就會發生不一樣結果。
+`var` 與 `const` 聲明產生不同錯誤。
+
+```js
+foo() // Uncaught ReferenceError: Cannot access 'foo' before initialization
+const foo = function foo() {
+    console.log("run foo function")
+}
+bar() // Uncaught TypeError: bar is not a function
+var bar = function bar() {
+    console.log("run bar function")
+}
+```
+
+這是因為 `var` 聲明提升並初始化為 `undefined`，而 `const` 聲明提升但沒有初始化。
+
+## 載入 `JavaScript` 腳本
+
+在 HTML 頁面上加仔腳本時，需要注意不要損害頁面加載性能。
+
+```js
+<script src="script.js"></script>
+```
+
+當 HTML 執行到這行就會載入腳本並執行。完成後就繼續後面解析。這會對加載時間產生很大的影響。
+
+### 腳本位置
+
+一般會放到 `head` 標籤中。
+
+```js
+<html>
+  <head>
+    <title>Title</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
+
+這樣的方式是不好的，會造成大量延遲，這問題常見的解決方法就是放置到 `</body>` 標籤前。在所有頁面被解析加載後，腳本才被加載和執行。
+
+### Async & defer
+
+異步和延遲用法相似：
+
+```js
+<script async src="script.js"></script>
+<script defer src="script.js"></script>
+<script async defer src="script.js"></script>
+```
+
+這只能放置 `head` 標籤內使用，在 `body` 標籤內不起作用。
+亦可同時指定使用，`async` ，當瀏覽器不支援時，會退回到 `defer`。
+
+### 效能比較
+
+異步(async) 是會立即載入，並執行會阻止HTML解析及渲染。若有多腳本時，依載入完成先執行。
+延遲(defer) 是會立即載入，並在HTML解析及渲染後執行。若有多腳本則執行順序依照標籤順序。
+
+
+<img :src="$withBase('/js_script_load.jpg')" alt="foo">
+
+### 參考文件
+
+[MDN JavaScript Basics](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+[MDN JavaScript Variables](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Variables)
+
+[MDN JavaScript Operators](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Math)
+
+[MDN JavaScript Functions](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions)
+
+[MDN JavaScript Arrays](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/Arrays)
+
+[MDN JavaScript Objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
